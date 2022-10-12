@@ -1,0 +1,27 @@
+{
+  "name": "monorep_workspace",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:dev":"yarn workspace admin dev",
+    "build:dev":"yarn workspace admin build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "workspaces": [
+    "packages/*",
+    "applications/*"
+  ],
+  "devDependencies": {
+    "clean-webpack-plugin": "^4.0.0",
+    "concurrently": "^7.4.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "cross-env": "^7.0.3",
+    "wait-on": "^6.0.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
