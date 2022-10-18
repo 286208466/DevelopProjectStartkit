@@ -1,0 +1,62 @@
+#app {
+    height: 100%;
+    overflow: hidden;
+
+    .app-content {
+        transition: left 0.28s;
+        left: 220px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    .app-menu {
+        transition: width 0.28s;
+        width: 220px;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1001;
+        overflow: hidden;
+        background: rgb(48, 65, 86);
+        
+        .el-scrollbar {
+            height: 100%;
+        }
+        .el-menu {
+            border-right: none;
+        }
+    }
+}
+
+/*
+	面包屑
+*/
+.breadcrumb-container {
+	margin-bottom: 20px;
+	>span {
+		display: inline-block;
+		vertical-align: middle;
+	}
+	>.el-breadcrumb {
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
+
+.app-body {
+    padding: 20px;
+}
+
+.app-toolbar {
+    margin-bottom: 20px;
+}
+
+.app-list-container {
+    background: #fff;
+    padding: 20px;
+}

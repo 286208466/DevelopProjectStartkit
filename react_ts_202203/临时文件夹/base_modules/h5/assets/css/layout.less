@@ -1,0 +1,121 @@
+/*
+	头部
+*/
+.app-header{
+	position: fixed;
+	height: 44px;
+	top: 0;
+	width: 100%;
+	max-width:768px;
+	z-index: 1000;
+	background: #fff;
+  color: #333;
+}
+.app-header .leftHeader, .app-header .rightHeader {
+	position: absolute;
+	top: 10px;
+	left: 15px;
+	line-height: normal;
+}
+.app-header i {
+	font-size: 20px;
+}
+.app-header .rightHeader {
+	left: auto;
+	right: 15px;
+}
+.app-header .headerTitle {
+	text-align: center;
+	line-height: 44px;
+	font-size: 16px;
+}
+.app-header::after {
+	content: " ";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 0;
+    border-bottom: 1px solid #ccc;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+}
+/*
+	底部
+*/
+.app-footer {
+	height: 48px;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	max-width:768px;
+  background: #fff;
+}
+.app-footer::after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 0;
+  border-top: 1px solid #ccc;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}
+.app-footer li {
+  float: left;
+  width: 25%;
+}
+.app-footer li a {
+  display: block;
+  text-align: center;
+  padding-top: 3px;
+  color: #000;
+}
+.app-footer li.cur a {
+  color: #3299FF;
+}
+.app-footer li a span {
+  display: block;
+  font-size: 12px;
+}
+
+/*
+	模拟页面
+*/
+.app-page{
+	z-index: 1020;
+    position: fixed;
+    width: 100%;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    /* display: none; */
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    background: #f2f4f5;
+}
+.app-page.show {
+    -webkit-transform: none;
+    transform: none;
+}
+.app-page .pageContent {
+	position: absolute;
+	top: 44px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	overflow: hidden;
+}
+.app-page .pageContent > div {
+	overflow-y: auto;
+}

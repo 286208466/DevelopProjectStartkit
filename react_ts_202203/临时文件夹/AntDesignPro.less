@@ -1,0 +1,54 @@
+#root,
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.ant-pro-basicLayout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+}
+
+.ant-layout {
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #f0f2f5;
+}
+
+.ant-layout.ant-layout-has-sider {
+  flex-direction: row;
+}
+
+.ant-layout.ant-layout-has-sider > .ant-layout,
+.ant-layout.ant-layout-has-sider > .ant-layout-content {
+  overflow-x: hidden;
+}
+
+.ant-layout-header {
+  height: 64px;
+  padding: 0 50px;
+  line-height: 64px;
+  flex: 0 0 auto;
+  background: #001529;
+}
+
+.ant-pro-basicLayout-content {
+  position: relative;
+  margin: 24px;
+  flex: auto;
+  transition: all 0.2s;
+}
+.ant-pro-basicLayout .ant-layout-header.ant-pro-fixed-header {
+  position: fixed;
+  top: 0;
+}
+.ant-pro-basicLayout-children-content-wrap {
+  background: #fff;
+  min-height: 800px;
+  padding: 20px;
+}
