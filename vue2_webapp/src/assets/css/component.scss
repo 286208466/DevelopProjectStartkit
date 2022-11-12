@@ -1,0 +1,185 @@
+@import './component/actionsheet.scss';
+@import './component/badge.scss';
+@import './component/btn.scss';
+@import './component/cell.scss';
+@import './component/dialog.scss';
+@import './component/flex.scss';
+@import './component/form.scss';
+@import './component/gallery.scss';
+@import './component/grid.scss';
+@import './component/icon.scss';
+@import './component/loadmore.scss';
+@import './component/msg.scss';
+@import './component/nav.scss';
+@import './component/page.scss';
+@import './component/panel.scss';
+@import './component/picker.scss';
+@import './component/progress.scss';
+@import './component/searchbar.scss';
+@import './component/tabbar.scss';
+@import './component/tag.scss';
+@import './component/toast.scss';
+@import './component/upload.scss';
+
+
+
+
+
+/*
+	浮动
+*/
+.clearfix:after {
+    clear: both;
+    content: "";
+    display: block;
+    height: 0;
+}
+.clearfix {
+    *zoom:1;
+}
+.fr {
+    float: right;
+}
+.fl {
+    float: left;
+}
+/*
+	省略号
+*/
+.ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.tc {
+	text-align: center;
+}
+.tr {
+	text-align: right;
+}
+.tl {
+	text-align: left;
+}
+/*
+	元素隐藏
+*/
+.hidden {
+    visibility: hidden;
+}
+.hide {
+    display: none;
+}
+.show {
+	display: block;
+}
+
+/*
+	其他
+*/
+.line {
+	height: 0;
+	position: relative;
+	border-top: 1px solid #efefef;
+	font-size: 0px;
+}
+.img-circle {
+	border-radius: 50%;
+}
+.square {
+    position: relative;
+    display: block;
+    height: 0;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 100%;
+    text-align: center;
+}
+
+.square img {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    -webkit-transform: translate(0,-50%);
+    transform: translate(0,-50%)
+}
+/*
+	渐进动画
+*/
+.fadeIn{
+	-webkit-animation:fadeIn 1s ease-in both;
+	animation:fadeIn 1s ease-in both
+}
+@-webkit-keyframes fadeIn{
+	0%{opacity:0}
+	100%{opacity:1}
+}
+@keyframes fadeIn{
+	0%{opacity:0}
+	100%{opacity:1}
+}
+/*
+	页面布局
+*/
+#app, .app-wrapper {
+	color: #2c3e50;
+	height: 100%;
+	width: 100%;
+	position: relative;
+}
+.app-main {
+	
+}
+.app-header:after {
+	content:" ";
+  	position:absolute;
+  	left:0;
+  	bottom:0;
+  	right:0;
+  	height:1px;
+  	border-bottom:1px solid #e5e5e5;
+  	-webkit-transform-origin:0 100%;
+    transform-origin:0 100%;
+  	-webkit-transform:scaleY(0.5);
+    transform:scaleY(0.5);
+}
+
+/*
+	下拉三角形
+*/
+.arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 9px solid #333;
+    margin-left: 10px;
+	-webkit-transition: all 0.35s ease;
+    transition: all 0.35s ease;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+}
+.open .arrow-down {
+	transform: rotate(180deg);
+	
+}
+.arrowDown {
+    display: inline-block;
+    height: 9px;
+    width: 9px;
+    border-width: 1px 1px 0 0;
+    border-color: #000;
+    border-style: solid;
+    -webkit-transform: matrix(0.71, 0.71, 0.71, -0.71, 0, 0);
+    transform: matrix(0.71, 0.71, 0.71, -0.71, 0, 0);
+    position: relative;
+    top: -4px;
+    margin-left: 10px;
+}
+.arrowDown.on {
+    -webkit-transform: matrix(0.71, -0.71, 0.71, 0.71, 0, 0);
+    transform: matrix(0.71, -0.71, 0.71, 0.71, 0, 0);
+    top: 2px;
+}

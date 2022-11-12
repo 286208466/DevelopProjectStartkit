@@ -1,0 +1,62 @@
+{
+  "name": "02",
+  "author": "fh",
+  "private": true,
+  "version": "0.0.0",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "start": "electron .",
+    "packager": "electron-packager ./dist/ --platform=win32 --arch=x64 --overwrite",
+    "electron": "wait-on tcp:3000 && cross-env isDev=true electron .",
+    "electron:dev": "concurrently -k \"cross-env BROWSER=none npm run dev\" \"npm run electron\"",
+    "electron:build.win": "npm run build && electron-builder --win --dir",
+    "electron:build.linux": "npm run build && electron-builder --linux appImage",
+    "electron:build.test": "npm run build && electron-builder --dir",
+    "electron:build.exe": "npm run build && electron-builder --win"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "js-cookie": "^3.0.1",
+    "path": "^0.12.7",
+    "vue": "^3.2.25",
+    "vue-router": "^4.0.15"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.3.3",
+    "concurrently": "^7.2.1",
+    "cross-env": "^7.0.3",
+    "electron": "^19.0.1",
+    "electron-builder": "^23.0.3",
+    "electron-packager": "^15.5.1",
+    "typescript": "^4.5.4",
+    "vite": "^2.9.9",
+    "vue-tsc": "^0.34.7",
+    "wait-on": "^6.0.1"
+  },
+  "build": {
+    "appId": "com.electron.myapp",
+    "productName": "MyApp",
+    "copyright": "Copyright © 2022 ${author}",
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets",
+      "output": "dist_electron"
+    },
+    "electronDownload": {
+      "mirror": "https://npm.taobao.org/mirrors/electron/"
+    }
+  }
+}
