@@ -6,6 +6,8 @@ import vueI18n from "@intlify/vite-plugin-vue-i18n";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "url";
 
+import svgLoader from "vite-svg-loader";
+
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import path from "path";
 
@@ -18,6 +20,7 @@ export default defineConfig({
   base: process.env.ELECTRON == "true" ? "./" : "",
   plugins: [
     vue(),
+    svgLoader(),
     vueI18n({
       // if you want to use Vue I18n Legacy API, you need to set `compositionOnly: false`
       // compositionOnly: false,
