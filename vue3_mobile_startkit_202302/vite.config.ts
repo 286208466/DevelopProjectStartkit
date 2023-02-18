@@ -3,6 +3,12 @@ import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import path from "path";
 
+import federation from "@originjs/vite-plugin-federation";
+import vueI18n from "@intlify/vite-plugin-vue-i18n";
+
+import svgLoader from "vite-svg-loader";
+import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
+
 const pathResolve = (dir: string) => path.resolve(__dirname, dir);
 
 // https://vitejs.dev/config/
@@ -14,24 +20,56 @@ export default defineConfig(({ command, mode }) => {
     // define: {
     //   'process.env': env,
     // },
-    plugins: [vue(), vueJsx()],
+    plugins: [
+      vue(),
+      svgLoader(),
+      vueI18n({
+        // if you want to use Vue I18n Legacy API, you need to set `compositionOnly: false`
+        // compositionOnly: false,
+
+        // you need to set i18n resource including paths !
+        include: resolve(__dirname, "./src/locales/*"),
+      }),
+
+      createSvgIconsPlugin({
+        // 指定需要缓存的图标文件夹
+        iconDirs: [path.resolve(process.cwd(), "src/assets/icons")],
+        // 指定symbolId格式
+        symbolId: "icon-[dir]-[name]",
+
+        /**
+         * 自定义插入位置
+         * @default: body-last
+         */
+        // inject?: 'body-last' | 'body-first'
+
+        /**
+         * custom dom id
+         * @default: __svg__icons__dom__
+         */
+        // customDomId: '__svg__icons__dom__',
+      }),
+      vueJsx({
+        // options are passed on to @vue/babel-plugin-jsx
+      }),
+    ],
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),
       },
+      extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json", ".vue"],
     },
     server: {
-      // port: 3000, // 默认 // vite3已改为默认5173
-      host: true, // 支持从ip启动
-      /* open: true,
+      port: 3000, // 默认 // vite3已改为默认5173
+      host: "0.0.0.0",
+      open: true,
       proxy: {
-        '/api': {
-          target: 'http://127.0.0.1:8000', // 后台服务地址
-          changeOrigin: true, // 是否允许不同源
-          secure: false, // 支持https
-          rewrite: path => path.replace(/^\/api/, ''),
+        "/api": {
+          target: "http://localhost:9000", // 所要代理的目标地址
+          rewrite: (path) => path.replace(/^\/api/, ""), // 重写传过来的path路径，比如 `/api/index/1?id=10&name=zs`（注意:path路径最前面有斜杠（/），因此，正则匹配的时候不要忘了是斜杠（/）开头的；选项的 key 也是斜杠（/）开头的）
+          changeOrigin: true,
         },
-      }, */
+      },
     },
     build: {
       outDir: "dist", // 指定打包路径，默认为项目根目录下的 dist 目录

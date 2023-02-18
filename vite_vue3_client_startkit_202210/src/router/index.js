@@ -43,7 +43,7 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "login" */ "../pages/login/index.vue"),
   },
-  // { path: '/', redirect: { name: 'Login' } }
+  { path: '/:pathMatch(.*)*', redirect: '/' },
 ];
 
 const router = createRouter({

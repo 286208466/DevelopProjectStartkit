@@ -1,18 +1,22 @@
 import { createApp } from "vue";
-import "./style.css";
 import App from "./App.vue";
 
 import Vant from "vant";
 
+import "nprogress/nprogress.css";
 import "vant/lib/index.css";
 
-import router from '@/router';
-import store from '@/store';
+import "virtual:svg-icons-register";
+import svgIcon from "@/components/SvgIcon.vue";
+
+import router from "./router/index";
+import store from "./store/index";
+import directive from "./directive/index";
 
 const app = createApp(App);
 
-app.use(router);
-app.use(store);
+app.component("svg-icon", svgIcon);
+app.use(store).use(router);
 
 app.use(Vant);
 app.mount("#app");
