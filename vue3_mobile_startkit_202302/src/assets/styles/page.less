@@ -1,0 +1,81 @@
+.clearfix:after {
+  clear: both;
+  content: "";
+  display: block;
+  height: 0;
+}
+/*
+  .clearfix::after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: "";
+    clear: both;
+    height: 0;
+  }
+  */
+.clearfix {
+  *zoom: 1;
+}
+.fr {
+  float: right;
+}
+.fl {
+  float: left;
+}
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.hide {
+  display: none;
+}
+.hidden {
+  visibility: hidden;
+}
+.show {
+  display: block;
+}
+
+i[class^="icon-"] {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@media screen and (min-width: 320px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 360px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.flex {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.flexItem {
+  flex: 1;
+  overflow: hidden;
+}

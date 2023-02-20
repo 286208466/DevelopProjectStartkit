@@ -18,6 +18,24 @@
       content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
     />
     <title>Vite + Vue + TS</title>
+    <script>
+      (function () {
+        if (
+          !/debug=true/.test(window.location.href) &&
+          localStorage.getItem("debug") != "true"
+        )
+          return;
+        var script = document.createElement("script");
+        let src = "../../js/eruda.js";
+        // let src="../../js/vconsole.min.js"
+        script.async = true
+        document.getElementsByTagName('head')[0].appendChild(script)
+        script.onload = function () {
+          eruda.init();
+          // var vConsole = new VConsole();
+        };
+      })();
+    </script>
   </head>
   <body ontouchstart>
     <div id="app"></div>

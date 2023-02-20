@@ -28,7 +28,7 @@ export default defineConfig(({ command, mode }) => {
         // compositionOnly: false,
 
         // you need to set i18n resource including paths !
-        include: resolve(__dirname, "./src/locales/*"),
+        include: path.resolve(__dirname, "./src/locales/*"),
       }),
 
       createSvgIconsPlugin({
@@ -71,28 +71,28 @@ export default defineConfig(({ command, mode }) => {
         },
       },
     },
-    build: {
-      outDir: "dist", // 指定打包路径，默认为项目根目录下的 dist 目录
-      sourcemap: env.VITE_BUILD_SOURCEMAP === "true",
-      // minify默认esbuild，esbuild模式下terserOptions将失效
-      // vite3变化：Terser 现在是一个可选依赖，如果你使用的是 build.minify: 'terser'，你需要手动安装它 `npm add -D terser`
-      minify: "terser",
-      terserOptions: {
-        compress: {
-          keep_infinity: true, // 防止 Infinity 被压缩成 1/0，这可能会导致 Chrome 上的性能问题
-          drop_console: env.VITE_BUILD_DROP_CONSOLE === "true", // 去除 console
-          drop_debugger: true, // 去除 debugger
-        },
-      },
-      chunkSizeWarningLimit: 1500, // chunk 大小警告的限制（以 kbs 为单位）
-    },
-    css: {
-      preprocessorOptions: {
-        less: {
-          javascriptEnabled: true,
-          additionalData: `@import "${pathResolve("src/styles/index.less")}";`,
-        },
-      },
-    },
+    // build: {
+    //   outDir: "dist", // 指定打包路径，默认为项目根目录下的 dist 目录
+    //   sourcemap: env.VITE_BUILD_SOURCEMAP === "true",
+    //   // minify默认esbuild，esbuild模式下terserOptions将失效
+    //   // vite3变化：Terser 现在是一个可选依赖，如果你使用的是 build.minify: 'terser'，你需要手动安装它 `npm add -D terser`
+    //   minify: "terser",
+    //   terserOptions: {
+    //     compress: {
+    //       keep_infinity: true, // 防止 Infinity 被压缩成 1/0，这可能会导致 Chrome 上的性能问题
+    //       drop_console: env.VITE_BUILD_DROP_CONSOLE === "true", // 去除 console
+    //       drop_debugger: true, // 去除 debugger
+    //     },
+    //   },
+    //   chunkSizeWarningLimit: 1500, // chunk 大小警告的限制（以 kbs 为单位）
+    // },
+    // css: {
+    //   preprocessorOptions: {
+    //     less: {
+    //       javascriptEnabled: true,
+    //       additionalData: `@import "${pathResolve("src/styles/index.less")}";`,
+    //     },
+    //   },
+    // },
   };
 });

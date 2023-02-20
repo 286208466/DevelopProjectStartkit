@@ -1,9 +1,18 @@
 import { createStore } from "vuex";
+import persistedstate from "vuex-persistedstate";
+import user from "./modules/user";
 
 export default createStore({
+  plugins: [
+    persistedstate({
+      storage: window.localStorage,
+    }),
+  ],
   state: {
     tagsList: [],
     collapse: false,
+    user: {},
+    version: "0.0.0",
   },
   mutations: {
     delTagsItem(state, data) {
@@ -40,5 +49,7 @@ export default createStore({
     },
   },
   actions: {},
-  modules: {},
+  modules: {
+    user
+  },
 });
