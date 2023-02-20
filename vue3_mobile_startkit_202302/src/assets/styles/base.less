@@ -1,7 +1,7 @@
-html {
-  font-size: -webkit-calc(100vw/7.5);
-  font-size: calc(100vw / 7.5);
-}
+// html {
+//   font-size: -webkit-calc(100vw/7.5);
+//   font-size: calc(100vw / 7.5);
+// }
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -36,7 +36,8 @@ body {
 		weui的字体设置
 		font-family: -apple-system-font,Helvetica Neue,sans-serif;
 	*/
-  font-family: "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif;
+  font-family: -apple-system-font, Helvetica Neue, sans-serif;
+  // font-family: "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif;
   /*
 		禁止页面文字选择 ，此属性不继承,一般加在body上规定整个body的文字都不会自动调整
 		-webkit-user-select: none;
@@ -159,6 +160,32 @@ sup {
 sub {
   bottom: -0.25em;
 }
+pre {
+  overflow: auto;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+}
+/*
+	引用
+*/
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
 /*
 	form表单
 */
@@ -197,32 +224,6 @@ button,
   padding: 0;
 }
 
-pre {
-  overflow: auto;
-  white-space: pre;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-}
-code,
-kbd,
-pre,
-samp {
-  font-family: monospace, monospace;
-}
-/*
-	引用
-*/
-blockquote,
-q {
-  quotes: none;
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: "";
-  content: none;
-}
 /*
 	指示简称或缩写，比如 "WWW" 或 "NATO"。
 	The <abbr title="People's Republic of China">PRC</abbr> was founded in 1949.
