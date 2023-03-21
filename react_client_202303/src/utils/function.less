@@ -1,0 +1,63 @@
+// 溢出省略号
+.ellipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 多行
+.ellipsis(@n) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: @n;
+  overflow: hidden;
+}
+
+// 矩形
+.rect (@w, @h: @w) {
+  width: @w;
+  height: @h;
+}
+
+// 圆
+.round (@w, @h: @w, @r: @h / 2) {
+  .rect (@w, @h);
+  border-radius: @r;
+}
+
+// 绝对居中
+.absolute-center() {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.absolute-center-rect(@w, @h: @w) {
+  .absolute-center();
+  .rect(@w, @h);
+}
+
+.absolute-center-round(@w, @h: @w, @r: @h / 2) {
+  .absolute-center();
+  .round(@w, @h, @r);
+}
+
+// 创建动画
+.ReactCSSTransitionGroup(@name, @enter, @enterActive, @leave: @enter, @leaveActive: @enterActive) {
+  .@{name}-enter {
+    @enter();
+  }
+
+  .@{name}-enter.@{name}-enter-active {
+    @enterActive();
+  }
+
+  .@{name}-leave {
+    @leave();
+  }
+
+  .@{name}-leave.@{name}-leave-active {
+    @leaveActive();
+  }
+}
