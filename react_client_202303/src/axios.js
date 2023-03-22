@@ -1,5 +1,15 @@
 import axios from "axios";
 // import Cookies from "js-cookie";
+
+import { cloneDeep } from 'lodash'
+const { parse, compile } = require("path-to-regexp")
+
+
+const { CancelToken } = axios
+window.cancelRequest = new Map()
+
+
+
 import { message } from "antd";
 message.config({
   maxCount: 1,

@@ -3,8 +3,8 @@ import React from "react";
 import { Provider } from "react-redux";
 
 import { ConfigProvider } from "antd";
-import zhCN from 'antd/locale/zh_CN';
-import en_US from "antd/locale/en_US"
+import zhCN from "antd/locale/zh_CN";
+import en_US from "antd/locale/en_US";
 import Cookies from "js-cookie";
 
 import "./assets/css/base.less";
@@ -26,9 +26,9 @@ import store from "./redux/store";
 // import 'dayjs/locale/zh-cn';
 // dayjs.locale('zh-cn');
 
-import moment from "moment";
-import "moment/locale/zh-cn";
-moment.locale("zh-cn");
+// import moment from "moment";
+// import "moment/locale/zh-cn";
+// moment.locale("zh-cn");
 
 function App() {
   return (
@@ -40,7 +40,9 @@ function App() {
         },
       }}
     >
-      <div className="App"></div>
+      <Provider store={store}>
+        <div className="App"></div>
+      </Provider>
     </ConfigProvider>
   );
 }
