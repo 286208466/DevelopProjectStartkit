@@ -17,19 +17,6 @@ export { Color } from './theme'
 export const languages = i18n ? i18n.languages.map(item => item.key) : []
 export const defaultLanguage = i18n ? i18n.defaultLanguage : ''
 
-/**
- * Query objects that specify keys and values in an array where all values are objects.
- * @param   {array}         array   An array where all values are objects, like [{key:1},{key:2}].
- * @param   {string}        key     The key of the object that needs to be queried.
- * @param   {string}        value   The value of the object that needs to be queried.
- * @return  {object|undefined}   Return frist object when query success.
- */
-export function queryArray(array, key, value) {
-  if (!Array.isArray(array)) {
-    return
-  }
-  return array.find(_ => _[key] === value)
-}
 
 /**
  * Convert an array to a tree-structured array.
