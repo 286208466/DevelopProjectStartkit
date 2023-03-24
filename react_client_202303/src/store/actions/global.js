@@ -30,14 +30,7 @@ export function SET_LOCALE(playload) {
   };
 }
 
-export function SET_PAGELOADING(playload) {
-  return (dispatch) => {
-    dispatch({
-      type: "SET_PAGELOADING",
-      playload,
-    });
-  };
-}
+
 
 export function SET_TABS(playload) {
   return (dispatch) => {

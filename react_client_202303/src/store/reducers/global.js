@@ -1,30 +1,20 @@
 // eslint-disable-next-line
 
-const _theme = localStorage.getItem("_theme");
-const _locale = localStorage.getItem("_locale");
-const _pageLoading = localStorage.getItem("_pageLoading");
-const _collapsed = localStorage.getItem("_collapsed");
-
-const _storage_tabs = localStorage.getItem("_tabs");
 const firsttab = {
   id: 0,
   path: "/manage/dashboard",
   name: "首页",
   closable: false,
+  version: "0.0.1",
 };
-const _tabs = !!_storage_tabs ? JSON.parse(_storage_tabs) : [firsttab];
-
-const _storage_activeTab = localStorage.getItem("_activeTab");
-const _activeTab = !!_storage_activeTab ? _storage_activeTab : _tabs[0].path;
 
 const initialState = {
   dict: {}, //默认数据字典
-  collapsed: _collapsed === "true" ? true : false, //是否展开
-  theme: _theme ? _theme : "light", //主题
-  locale: _locale ? _locale : "zh_CN", //默认语言
-  tabs: _tabs, //页签
-  activeTab: _activeTab,
-  pageLoading: _pageLoading === "true" ? true : false,
+  collapsed: false, //是否展开
+  theme: "light", //主题
+  locale: "zh_CN", //默认语言
+  tabs: [firsttab], //页签
+  activeTab: firsttab.path,
 };
 
 export default function (state = initialState, action) {
@@ -38,19 +28,16 @@ export default function (state = initialState, action) {
         },
       };
     case "SET_COLLAPSED":
-      localStorage.setItem("_collapsed", action.playload);
       return {
         ...state,
         collapsed: action.playload,
       };
     case "SET_THEME":
-      localStorage.setItem("_theme", action.playload);
       return {
         ...state,
         theme: action.playload,
       };
     case "SET_LOCALE":
-      localStorage.setItem("_locale", action.playload);
       return {
         ...state,
         locale: action.playload,
@@ -67,8 +54,6 @@ export default function (state = initialState, action) {
         state.activeTab = firsttab.path;
         state.tabs = [firsttab];
       }
-      localStorage.setItem("_tabs", JSON.stringify(state.tabs));
-      localStorage.setItem("_activeTab", state.activeTab);
       return {
         ...state,
       };
@@ -80,8 +65,6 @@ export default function (state = initialState, action) {
         arr.push(action.playload);
       }
       state.activeTab = action.playload.path;
-      localStorage.setItem("_tabs", JSON.stringify(arr));
-      localStorage.setItem("_activeTab", action.playload.path);
       return {
         ...state,
         tabs: [...arr],
@@ -103,8 +86,6 @@ export default function (state = initialState, action) {
         state.activeTab = state.tabs[lastIndex].path;
       }
 
-      localStorage.setItem("_tabs", JSON.stringify([...tabs]));
-      localStorage.setItem("_activeTab", state.activeTab);
       return {
         ...state,
         tabs: [...tabs],
@@ -112,8 +93,6 @@ export default function (state = initialState, action) {
     case "REMOVEALL_TABS":
       state.activeTab = firsttab.path;
       state.tabs = [firsttab];
-      localStorage.setItem("_tabs", JSON.stringify([firsttab]));
-      localStorage.setItem("_activeTab", firsttab.path);
       return {
         ...state,
       };

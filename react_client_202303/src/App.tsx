@@ -21,7 +21,8 @@ import Cookies from "js-cookie";
 import "./assets/css/App.scss";
 import "antd/dist/reset.css";
 
-import store from "./store/store";
+import { store, persistor } from "./store/index";
+import { PersistGate } from "redux-persist/integration/react";
 
 import { BrowserRouter } from "react-router-dom";
 import RenderRouter from "./router";
@@ -64,7 +65,7 @@ function App() {
     return state.global.locale;
   });
 
-  console.log("locale",locale)
+  console.log("locale", locale);
 
   return (
     <ConfigProvider
@@ -76,21 +77,23 @@ function App() {
       // }}
     >
       <Provider store={store}>
-        <IntlProvider
-          locale={locale.split("_")[0]}
-          messages={messages[locale.split("_")[0]]}
-        >
-          <BrowserRouter>
-            <Suspense fallback={<h1>Loading...</h1>}>
-              <Spin
-                spinning={false}
-                className="app-loading-wrapper"
-                // tip={<LocaleFormatter id="common.tips.loading" />}
-              ></Spin>
-              <RenderRouter />
-            </Suspense>
-          </BrowserRouter>
-        </IntlProvider>
+        <PersistGate loading={null} persistor={persistor}>
+          <IntlProvider
+            locale={locale.split("_")[0]}
+            messages={messages[locale.split("_")[0]]}
+          >
+            <BrowserRouter>
+              <Suspense fallback={<h1>Loading...</h1>}>
+                <Spin
+                  spinning={false}
+                  className="app-loading-wrapper"
+                  // tip={<LocaleFormatter id="common.tips.loading" />}
+                ></Spin>
+                <RenderRouter />
+              </Suspense>
+            </BrowserRouter>
+          </IntlProvider>
+        </PersistGate>
       </Provider>
     </ConfigProvider>
   );

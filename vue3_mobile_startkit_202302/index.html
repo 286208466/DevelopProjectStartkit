@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="htmlRoot" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
@@ -9,15 +9,15 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="format-detection" content="email=no" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta
+    <!-- <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover"
-    />
+    /> -->
     <meta
       name="viewport"
       content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
     />
-    <title>Vite + Vue + TS</title>
+    <title></title>
     <script>
       (function () {
         if (
@@ -28,8 +28,9 @@
         var script = document.createElement("script");
         let src = "../../js/eruda.js";
         // let src="../../js/vconsole.min.js"
-        script.async = true
-        document.getElementsByTagName('head')[0].appendChild(script)
+        script.src = src;
+        script.async = true;
+        document.getElementsByTagName("head")[0].appendChild(script);
         script.onload = function () {
           eruda.init();
           // var vConsole = new VConsole();
@@ -38,7 +39,101 @@
     </script>
   </head>
   <body ontouchstart>
-    <div id="app"></div>
+    <div id="app">
+      <style>
+        html[data-theme="dark"] .first-loading-wrap {
+          background-color: #101014;
+        }
+        .first-loading-wrap {
+          display: flex;
+          width: 100%;
+          height: 100vh;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+        }
+        .first-loading-wrap > h1 {
+          font-size: 128px;
+        }
+        .first-loading-wrap .loading-wrap {
+          padding: 98px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .dot {
+          animation: antRotate 1.2s infinite linear;
+          transform: rotate(45deg);
+          position: relative;
+          display: inline-block;
+          font-size: 52px;
+          width: 52px;
+          height: 52px;
+          box-sizing: border-box;
+        }
+        .dot i {
+          width: 24px;
+          height: 24px;
+          position: absolute;
+          display: block;
+          background-color: #1890ff;
+          border-radius: 100%;
+          transform: scale(0.75);
+          transform-origin: 50% 50%;
+          opacity: 0.3;
+          animation: antSpinMove 1s infinite linear alternate;
+        }
+        .dot i:nth-child(1) {
+          top: 0;
+          left: 0;
+        }
+        .dot i:nth-child(2) {
+          top: 0;
+          right: 0;
+          -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+        }
+        .dot i:nth-child(3) {
+          right: 0;
+          bottom: 0;
+          -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+        }
+        .dot i:nth-child(4) {
+          bottom: 0;
+          left: 0;
+          -webkit-animation-delay: 1.2s;
+          animation-delay: 1.2s;
+        }
+        @keyframes antRotate {
+          to {
+            -webkit-transform: rotate(405deg);
+            transform: rotate(405deg);
+          }
+        }
+        @-webkit-keyframes antRotate {
+          to {
+            -webkit-transform: rotate(405deg);
+            transform: rotate(405deg);
+          }
+        }
+        @keyframes antSpinMove {
+          to {
+            opacity: 1;
+          }
+        }
+        @-webkit-keyframes antSpinMove {
+          to {
+            opacity: 1;
+          }
+        }
+      </style>
+      <div class="first-loading-wrap">
+        <div class="loading-wrap">
+          <span class="dot dot-spin"><i></i><i></i><i></i><i></i></span>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

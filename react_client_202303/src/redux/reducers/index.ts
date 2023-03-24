@@ -1,10 +1,13 @@
 import { combineReducers } from "redux";
-import systemReducer from "./system";
+import userReducer from "./user";
+import globalReducer from "./global";
 
 const allReducers = {
-  system: systemReducer
+  user: userReducer,
+  global: globalReducer,
 };
 
 const rootReducer = combineReducers(allReducers);
 
 export default rootReducer;
+

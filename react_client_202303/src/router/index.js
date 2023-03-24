@@ -9,7 +9,7 @@ import {
 import { lazy, FC } from "react";
 
 import Login from "@/pages/login";
-import NotFound from "@/pages/404";
+import NotFound from "@/pages/error/antd_404";
 
 const routeList = [
   {

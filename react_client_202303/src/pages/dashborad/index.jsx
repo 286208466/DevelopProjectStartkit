@@ -1,6 +1,4 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
-import { FC } from "react";
+import React, { FC } from "react";
 import {
   useState,
   useEffect,
@@ -10,6 +8,10 @@ import {
   forwardRef,
   Suspense,
 } from "react";
+
+import { connect, bindActionCreators } from "react-redux";
+import { SET_USERINFO } from "../../store/action";
+// import * as actions from "./redux/actions";
 
 import styles from "./index.module.scss";
 
@@ -24,12 +26,22 @@ const App = (props) => {
   );
 };
 
-// const mapStateToProps = (state) => ({
-//   global: state.global,
-// });
+const mapStateToProps = (state) => ({
+  global: state.global,
+  user: state.user,
+  temporary: state.temporary,
+});
 // const mapDispatchToProps = (dispatch) => {
 //   return bindActionCreators(actions, dispatch);
 // };
-// export default connect(mapStateToProps, mapDispatchToProps)(App);
 
-export default App;
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    SET_USERINFO(data) {
+      dispatch(SET_USERINFO(data));
+    },
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+// export default App;

@@ -1,10 +1,7 @@
 // eslint-disable-next-line
 
-const _storage_userinfo = localStorage.getItem("_userinfo");
-const _userinfo = !!_storage_userinfo ? JSON.parse(_storage_userinfo) : {};
-
 const initialState = {
-  userinfo: _userinfo,
+  userinfo: {},
   auths: [],
   authKeys: [],
 };
