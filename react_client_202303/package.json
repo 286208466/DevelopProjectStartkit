@@ -87,7 +87,13 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "build:dev": "cross-env REACT_ENV=development node scripts/build.js",
+    "build:test": "cross-env REACT_ENV=test node scripts/build.js",
+    "build:pro": "cross-env REACT_ENV=production node scripts/build.js",
+    "test": "node scripts/test.js",
+    "startapp": "wait-on http://localhost:3000 && electron .",
+    "packager": "npm run build && rm -rf dist && electron-builder"
     
   },
   "eslintConfig": {
@@ -165,5 +171,33 @@
     "presets": [
       "react-app"
     ]
+  },
+  "build": {
+    "mac": {
+      "category": "demo"
+    },
+    "files": [
+      {
+        "from": "./",
+        "to": "./",
+        "filter": [
+          "**/*",
+          "!node_modules"
+        ]
+      }
+    ],
+    "directories": {
+      "buildResources": "public"
+    }
+  },
+  "devDependencies": {
+    "concurrently": "^7.2.1",
+    "devtron": "^1.4.0",
+    "electron": "^19.0.0",
+    "electron-builder": "^23.0.3",
+    "electron-debug": "^3.2.0",
+    "electron-devtools-installer": "^3.2.0",
+    "electron-is-dev": "^2.0.0",
+    "wait-on": "^6.0.1"
   }
 }

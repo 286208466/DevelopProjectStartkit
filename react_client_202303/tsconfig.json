@@ -18,6 +18,9 @@
     "strictNullChecks": false,
     "jsx": "react-jsx"
   },
+  "paths": {
+    "@/*": ["src/*"]
+  },
   "include": ["src"],
   "exclude": ["node_modules"],
   "extends": "./paths.json"
