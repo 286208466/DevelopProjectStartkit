@@ -1,3 +1,22 @@
+
+**常用**
+
+axios
+js-cookie
+less less-loader
+mockjs
+nprogress
+vue-i18n
+vue-router
+vuex
+
+**UI框架**
+element-plus
+
+vue-cropperjs
+
+
+
 ### 参考
 
 https://www.jb51.net/article/218289.htm
