@@ -24,10 +24,14 @@ import "antd/dist/reset.css";
 import { store, persistor } from "./store/index";
 import { PersistGate } from "redux-persist/integration/react";
 
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter, BrowserRouter } from "react-router-dom";
 import RenderRouter from "./router";
 
 import { messages, LocaleFormatter } from "./locales";
+
+// import { bindActionCreators } from "redux";
+// import { connect } from "react-redux";
+// import * as actions from "./redux/actions";
 
 // import NotFound from "./views/NotFound";
 // import Login from "./views/login";
