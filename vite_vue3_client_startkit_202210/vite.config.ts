@@ -75,6 +75,7 @@ export default defineConfig({
     host: "0.0.0.0",
     port: 8888,
     open: true,
+    cors: true,
     proxy: {
       "/api": {
         target: "http://localhost:9000", // 所要代理的目标地址

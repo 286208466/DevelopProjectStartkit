@@ -1,11 +1,22 @@
 import { createStore } from "vuex";
 
+const defaultState = {
+  version: "0.0.1",
+  collapse: false,
+
+  language: "zh",
+  tagsList: [],
+};
+
 export default createStore({
-  state: {
-    tagsList: [],
-    collapse: false,
+  state() {
+    return defaultState;
   },
   mutations: {
+    setCollapse(collapse) {
+      state.collapse = collapse;
+    },
+
     delTagsItem(state, data) {
       state.tagsList.splice(data.index, 1);
     },
@@ -39,6 +50,15 @@ export default createStore({
       state.collapse = data;
     },
   },
-  actions: {},
+  actions: {
+    setCollapse(context) {
+      context.commit("setCollapse");
+    },
+  },
+  getters: {
+    collapse(state) {
+      return state.collapse;
+    },
+  },
   modules: {},
 });
