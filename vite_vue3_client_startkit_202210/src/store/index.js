@@ -1,4 +1,6 @@
 import { createStore } from "vuex";
+import global from "./modules/global"
+import user from "./modules/user"
 
 const defaultState = {
   version: "0.0.1",
@@ -60,5 +62,8 @@ export default createStore({
       return state.collapse;
     },
   },
-  modules: {},
+  modules: {
+    global,
+    user
+  },
 });

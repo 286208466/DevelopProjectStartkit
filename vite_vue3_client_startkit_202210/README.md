@@ -19,6 +19,8 @@ vue-cropperjs
 
 ### 参考
 
+https://github.com/vbenjs/vben-admin-thin-next
+
 https://www.jb51.net/article/218289.htm
 
 https://www.cnblogs.com/xiaoyan2017/p/14776441.html

@@ -35,9 +35,11 @@
     "vuex-persistedstate": "^4.1.0"
   },
   "devDependencies": {
+    "@arco-design/web-vue": "^2.44.7",
     "@intlify/vite-plugin-vue-i18n": "^6.0.3",
     "@originjs/vite-plugin-federation": "^1.1.9",
     "@vitejs/plugin-vue": "^3.1.0",
+    "@vitejs/plugin-vue-jsx": "^3.0.1",
     "concurrently": "^7.4.0",
     "cross-env": "^7.0.3",
     "electron": "^21.1.0",

@@ -11,6 +11,9 @@ import svgIcon from "@/components/SvgIcon.vue";
 // import "element-plus/dist/index.css";
 // import zhCn from "element-plus/es/locale/lang/zh-cn";
 
+import ArcoVue from '@arco-design/web-vue';
+import '@arco-design/web-vue/dist/arco.css';
+
 import router from "./router/index";
 import store from "./store/index";
 import directive from "./directive/index";
@@ -28,7 +31,7 @@ app.component("svg-icon", svgIcon);
 app.use(store).use(router);
 // .use(i18n)
 //   .use(ElementPlus, { size: "small", zIndex: 3000, locale: zhCn });
-
+app.use(ArcoVue);
 app.mount("#app");
 
 
