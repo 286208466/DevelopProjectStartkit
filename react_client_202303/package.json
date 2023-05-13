@@ -92,7 +92,9 @@
     "build:test": "cross-env REACT_ENV=test node scripts/build.js",
     "build:pro": "cross-env REACT_ENV=production node scripts/build.js",
     "test": "node scripts/test.js",
-    "startapp": "wait-on http://localhost:3000 && electron .",
+
+
+    "electron": "wait-on http://localhost:3000 && electron .",
     "packager": "npm run build && rm -rf dist && electron-builder"
     
   },

@@ -3,19 +3,27 @@ const { app, BrowserWindow } = require("electron");
 const path = require("path");
 const url = require("url");
 
+const platform = require("os").platform(); // 获取平
+
 // const IS_DEV = process.env.NODE_ENV === "development";
-const IS_DEV = true
+const IS_DEV = true;
 // 保持window对象的全局引用,避免JavaScript对象被垃圾回收时,窗口被自动关闭.
 let mainWindow;
 
 function createWindow() {
   //创建浏览器窗口,宽高自定义
-  mainWindow = new BrowserWindow({ width: 800, height: 600 });
+  mainWindow = new BrowserWindow({
+    width: 1200,
+    height: 750,
+    webPreferences: {
+      webSecurity: false, // 这样可以在 webview 中加载/显示本地计算机的图片。
+    },
+  });
 
   // 加载应用
   const staticIndexPath = path.join(__dirname, "./index.html");
   const main = IS_DEV
-    ? `http://localhost:3000`
+    ? `http://localhost:3300`
     : url.format({
         pathname: staticIndexPath,
         protocol: "file:",
@@ -50,4 +58,10 @@ app.on("activate", function () {
   }
 });
 
-// 你可以在这个脚本中续写或者使用require引入独立的js文件.
+// 这是一个示例，展示了`渲染进程`发送了`chooseFolder `事件后，`主进程`打开选择目录的对话框。
+// electron.ipcMain.on('chooseFolder', function(){
+//   const dialog = electron.dialog;
+//   dialog.showOpenDialog(mainWindow, {
+//       properties: ['openDirectory']
+//   });
+// });
