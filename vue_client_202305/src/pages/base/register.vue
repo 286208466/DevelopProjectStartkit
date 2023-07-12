@@ -1,8 +1,12 @@
 <template>
-    <h1>register</h1>
-  </template>
-  
-  <script setup></script>
-  
-  <style lang="less" scoped></style>
-  
+  <div class="loginSupportPage"></div>
+</template>
+
+<script setup>
+import { defineProps, reactive, computed, watch } from "vue";
+</script>
+
+<style lang="less" scoped>
+.loginSupportPage {
+}
+</style>

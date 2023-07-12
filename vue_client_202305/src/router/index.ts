@@ -17,6 +17,18 @@ const routes: any[] = [
     },
   },
   {
+    path: "/loginSupport",
+    name: "baseLoginSupport",
+    component: () => import("@/pages/base/loginSupport.vue"),
+    meta: {
+      title: "无法登陆",
+      theme: "light",
+      keepAlive: false,
+      roles: [],
+    },
+  },
+
+  {
     path: "/register",
     name: "baseRegister",
     component: () => import("@/pages/base/register.vue"),

@@ -34,6 +34,64 @@ https://juejin.cn/post/7084126780390375461
 
 https://juejin.cn/post/7094525364478672903
 
+
+vite2 常用插件篇（一）- 基础插件
+https://juejin.cn/post/6993699163263221797#heading-10
+
+Vite之高效插件推荐
+https://juejin.cn/post/6998059092497399845
+
+【大厂企业级项目架构】之vite基础配置与多环境区分
+https://juejin.cn/post/7132464868128456712
+
+关于 vite.config.js 相关配置，拿走不谢
+https://juejin.cn/post/7039879176534360077
+
+Vite2 + vue3 + TS + ElementPlus 从零搭建后台管理系统（七）
+https://juejin.cn/post/6964255744170393614
+
+vite——纵享丝滑开发体验
+https://juejin.cn/post/6906674140792094727#heading-14
+
+记一次Vue2.7 + Vite3改造老项目
+https://juejin.cn/post/7125344491396923400
+
+vite2 常用插件篇（三）- 进阶插件
+https://juejin.cn/post/6996176490148659231
+
+vite根据环境变量与模式打包项目
+https://juejin.cn/post/6994310850290909214
+
+vite + Vue3 遇到的一些问题汇总
+https://juejin.cn/post/7028137821269393438
+
+Vite 2.0 + React + Ant Design 4.0 搭建开发环境
+https://juejin.cn/post/6938671679153373214#heading-8
+
+
+2021必知必会的vite+vue3项目最佳实践
+https://juejin.cn/post/6926822933721513998#heading-21
+
+
+学会这 20 个库，让你快速看懂 vue3 和 vite3 源码
+https://juejin.cn/post/7124112069355372581
+
+
+https://github.com/vitejs/awesome-vite#plugins
+
+
+https://github.com/parajs/vue3-mobile-template/tree/master/src
+
+https://github.com/CharleeWa/vue3-vant-mobile
+
+https://github.com/Coder-XiaoYi/vue-mobile-template
+
+
+
+
+
+
+
 ### 问题
 1、打包后白屏
 
