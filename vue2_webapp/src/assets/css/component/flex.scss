@@ -1,0 +1,30 @@
+/*
+	flex组件
+	<div class="flex">
+		<div class="flex_item"></div>
+	</div>
+	<div class="flex">
+		<div class="flex_item"></div>
+		<div class="flex_item"></div>
+	</div>
+	<div class="flex">
+		<div class="flex_item"></div>
+		<div class="flex_item"></div>
+		<div class="flex_item"></div>
+	</div>
+	<div class="flex">
+		<div></div>
+		<div class="flex_item"></div>
+		<div></div>
+	</div>
+*/
+.flex {
+	display:-webkit-box;
+  	display:-webkit-flex;
+  	display:flex;
+}
+.flex_item {
+	-webkit-box-flex:1;
+  	-webkit-flex:1;
+    flex:1;
+}
