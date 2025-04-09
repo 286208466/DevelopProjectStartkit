@@ -5,7 +5,7 @@
     :width="props.size"
     :height="props.size"
   >
-    <use :xlink:href="symbolId" :fill="props.color" rel="external nofollow" />
+    <use :xlink:href="symbolId" :fill="props.color" />
   </svg>
 </template>
 
@@ -32,13 +32,3 @@ const props = defineProps({
 
 const symbolId = computed(() => `#${props.prefix}-${props.name}`);
 </script>
-<style lang="less">
-.svg-icon {
-  // width: 1em;
-  // height: 1em;
-  vertical-align: -0.15em;
-  position: relative;
-  fill: currentColor;
-  overflow: hidden;
-}
-</style>

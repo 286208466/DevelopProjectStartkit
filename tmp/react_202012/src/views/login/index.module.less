@@ -1,0 +1,70 @@
+.loginContainer {
+  width: 500px;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 40px 40px;
+  border-radius: 4px;
+
+  h3 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  :global(.ant-input-prefix) {
+    margin-right: 12px;
+    font-size: 18px;
+    color: #888;
+  }
+  :global(.ant-input) {
+    line-height: 34px;
+  }
+  :global(.ant-btn) {
+    height: 42px;
+  }
+  :global(.ant-input) {
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    outline: none;
+  }
+  :global(.ant-input:focus) {
+    box-shadow: none !important;
+    outline: none !important;
+  }
+  :global(.ant-input-affix-wrapper) {
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    outline: none;
+  }
+  :global(.ant-input-affix-wrapper-focused) {
+    box-shadow: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+  }
+}
+
+.forgetBtn {
+  float: right;
+}
+
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+  :global(.ant-spin) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
